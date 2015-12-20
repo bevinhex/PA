@@ -1,7 +1,6 @@
 # Pa
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a scheduler, written according to the template in 'seven habits of highly effective people', includes pages for 'mission statement','long term role-goal', 'short term role-goal based weekly scheduler'
 
 ## Prerequisites
 
