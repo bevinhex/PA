@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('mission-statement',{path:'/'});
+  this.route('longterm-goals');
+  this.route('weekly-goals');
 });
 
 export default Router;

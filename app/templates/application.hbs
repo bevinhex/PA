@@ -1,3 +1,10 @@
-<h2 id="title">Welcome to Ember</h2>
-
+<section id="menu-bar">
+	<div class="btn-group-vertical" role="group">
+		{{#link-to 'mission-statement' tagName='button' class="btn btn-primary"}}Mission statement{{/link-to}}
+		{{#link-to 'longterm-goals' tagName='button' class="btn btn-primary"}}Longterm goals{{/link-to}}
+		{{#link-to 'weekly-goals' tagName='button' class="btn btn-primary"}}Weekly goals{{/link-to}}
+	</div>
+</section>
+<section id="content" class="well">
 {{outlet}}
+</section>

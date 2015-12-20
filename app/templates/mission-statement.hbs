@@ -1,0 +1,26 @@
+<style>
+	#statement
+	{
+		height:100%;
+		outline-color: #2F2F2F;
+	}
+	.mce-edit-focus
+	{
+		outline-style:inset;
+	}
+	.toolbar-bottom .mce-floatpanel
+	{
+		bottom: 0px;
+		position: absolute;
+		top: auto !important;
+		height:auto;
+	}
+	#toolbar
+	{
+		position:fixed;
+		min-width:1px;
+		min-height:1px;
+	}
+</style>
+<div id="statement" {{action "editStatement" on="doubleClick"}}></div>
+<div id="toolbar"></div>
