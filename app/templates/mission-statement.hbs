@@ -8,6 +8,10 @@
 	{
 		outline-style:inset;
 	}
+	.editer-view
+	{
+		height:100%;
+	}
 	.toolbar-bottom .mce-floatpanel
 	{
 		bottom: 0px;
@@ -22,5 +26,5 @@
 		min-height:1px;
 	}
 </style>
-<div id="statement" {{action "editStatement" on="doubleClick"}}></div>
+{{tinymce-editor value=model.statement onBlur=(action 'tinymceChanged')}}
 <div id="toolbar"></div>

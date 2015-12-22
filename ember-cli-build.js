@@ -10,6 +10,8 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
   app.import('bower_components/tinymce/tinymce.min.js');
   app.import('bower_components/tinymce/tinymce.jquery.min.js');
+  app.import('vendor/xeditable/bootstrap-editable.min.js');
+  app.import('vendor/xeditable/bootstrap-editable.css');
   
   // Use `app.import` to add additional libraries to the generated
   // output files.
