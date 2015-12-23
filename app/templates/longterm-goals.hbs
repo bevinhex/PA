@@ -1,3 +1,4 @@
 {{#each roles as |role|}}
 		{{role-goal role=role all-goals=goals}}
 {{/each}}
+<button {{action 'newRole'}} class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>New Role</button>

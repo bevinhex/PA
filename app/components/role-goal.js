@@ -2,8 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	classNames:'role-goal',
-	willDestroyElement(){
-	},
 	didInsertElement(){
 		console.log('didInsertElement')
 		var self = this;
@@ -13,7 +11,6 @@ export default Ember.Component.extend({
 			type:'text',
 			display:function(){return false;},
 			success:function(response,newValue){
-				console.log('roleEdit')
 				var role = self.get('role');
 				role.set('name',newValue);
 				role.save();
@@ -22,8 +19,8 @@ export default Ember.Component.extend({
 		var goalEdit = $(this.element.getElementsByClassName('goal-editable'));
 		goalEdit.editable({
 			type:'text',
+			display:function(){return false;},
 			success:function(response,newValue){
-				console.log('goalEdit')
 				var id = $(this).data('id');
 				var model = self.get('goals').findBy('id',id);
 				model.set('name',newValue);
@@ -52,7 +49,25 @@ export default Ember.Component.extend({
                  roleId:this.get('role.id'),
                  name:'New goal'
             })
-			goal.save();
-         }
+			var self = this;
+			goal.save().then(function(){
+				var goalEdit = $(self.element.getElementsByClassName('goal-editable'));
+				goalEdit.editable({
+					type:'text',
+					display:function(){return false;},
+					success:function(response,newValue){
+						var id = $(this).data('id');
+						var model = self.get('goals').findBy('id',id);
+						model.set('name',newValue);
+						model.save();
+					}
+				});
+			});
+         },
+		deleteGoal(id){
+			var model = this.get('goals').findBy('id',id);
+			model.destroyRecord();
+		}
+
 	}
 });

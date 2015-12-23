@@ -11,5 +11,13 @@ export default Ember.Route.extend({
 		this._super(...arguments);
 		Ember.set(controller,'roles',model.roles)
 		Ember.set(controller,'goals',model.goals)
+	},
+	actions:{
+		newRole(){
+			var role = this.store.createRecord('role',{
+                 name:'New role'
+            });
+			role.save();
+		}
 	}
 });

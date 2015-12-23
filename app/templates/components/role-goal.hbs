@@ -70,7 +70,7 @@
 			{{#unless goal.isDeleted}}
 			<div class="goal-row">
 				<a class="goal-editable editable" data-id={{goal.id}}>{{goal.name}}</a>
-				<button type="button" class="btn btn-success btn-xs pull-right"><span class="glyphicon glyphicon-trash"></span></button>
+				<button type="button" class="btn btn-success btn-xs pull-right" {{action 'deleteGoal' goal.id}}><span class="glyphicon glyphicon-trash"></span></button>
 			</div>
 			{{/unless}}
 			{{/each}}
