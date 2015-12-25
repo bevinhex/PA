@@ -1,0 +1,98 @@
+<style>
+.weekly-goal .table-role
+{
+	margin-bottom:0px;
+	width:23%;
+	table-layout:fixed;
+}
+.weekly-goal .goal-row
+{
+	position:relative;
+}
+.weekly-goal td
+{
+	vertical-align:middle !important;
+}
+.weekly-goal .goal-row a
+{
+	margin-left: 10px;
+	word-break:break-all;
+}
+.weekly-goal .goal-row:hover .priority
+{
+	right:24px;
+}
+.weekly-goal .goal-row .priority
+{
+	position:absolute;
+	right:0px;
+	bottom:2px;
+}
+.weekly-goal .goal-row:nth-child(odd)
+{
+	background-color: #D8EFF0;;
+}
+.weekly-goal .goal-row:nth-child(even)
+{
+	background-color: #F0F0D8;
+}
+.weekly-goal .btn-xs
+{
+	padding: 0px 5px;
+}
+.weekly-goal .role-btn-group
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	display:none;
+}
+.weekly-goal .role-cell:hover .role-btn-group
+{
+	display:table-cell;
+}
+.weekly-goal .goal-row .goal-button
+{
+	position:absolute;
+	right:0px;
+}
+.weekly-goal .goal-row button
+{
+	display:none;
+}
+.weekly-goal .goal-row:hover button
+{
+	display:inline-block;
+}
+.weekly-goal .role-cell
+{
+	position:relative;
+	text-align: center;
+	background-clip: padding-box;
+	width:50%;
+}
+.weekly-goal .editable
+{
+	display: inline-block;
+	border-bottom:none !important;
+}
+</style>
+<table class="table table-bordered table-hover table-role">
+	<tr>
+		<td class="success role-cell">
+			<a class="role-editable editable">{{role.name}}</a>
+			<span class="btn-group pull-right role-btn-group">
+				<button type="button" class="btn btn-success btn-xs" {{action 'newGoal'}}><span class="glyphicon glyphicon-plus"></span></button>
+			</span>
+		</td>
+		<td>
+			{{#each goals as |goal|}}
+				<div class="goal-row">
+					<a class="priority-editable priority" data-id={{goal.id}} data-value={{goal.priority}}><span class="label label-default">{{goal.priority}}</span></a>
+					<a class="goal-editable editable" data-id={{goal.id}}>{{goal.content}}</a>
+					<button type="button" class="btn btn-success btn-xs pull-right goal-button" {{action 'deleteGoal' goal.id}}><span class="glyphicon glyphicon-trash"></span></button>
+				</div>
+			{{/each}}
+		</td>
+	</tr>
+</table>

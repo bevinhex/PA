@@ -1,1 +1,4 @@
-<h1>Weekly goals</h1>
+{{#each roles as |role|}}
+		{{weekly-goal role=role all-goals=goals}}
+{{/each}}
+{{weekly-calendar goals=goals}}
