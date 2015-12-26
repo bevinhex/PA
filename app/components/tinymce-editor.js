@@ -85,7 +85,7 @@ export default Ember.Component.extend({
       cb();
       this._suspendValueChange = false;
     },
-  valueChanged: function() {
+	valueChanged: function() {
       if (this._suspendValueChange) {
 	        return;
 	      }

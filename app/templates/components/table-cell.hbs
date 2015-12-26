@@ -1,0 +1,17 @@
+<style>
+	.table-cell
+	{
+		height:100%;
+	}
+	.table-cell .event
+	{
+		padding:0px 5px;
+		line-height: 18px;
+		height: 20px;
+	}
+</style>
+<div class="btn-group btn-group-justified">
+{{#each myGoals as |goal|}}
+<a draggable='true' data-id={{goal.id}} class='event btn btn-primary'>{{goal.content}}</a>
+{{/each}}
+</div>

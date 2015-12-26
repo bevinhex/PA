@@ -10,6 +10,9 @@ export default Ember.Component.extend({
 		}
 		return source;
 	}.property('all-goals.length'),
+	dragStart(event){
+		event.dataTransfer.setData('text/data',$(event.target).data('id'));
+	},
 	didInsertElement(){
 		var self = this;
 		$.fn.editable.defaults.mode = 'inline';
@@ -64,9 +67,8 @@ export default Ember.Component.extend({
 		deleteGoal(id){
 			var model = this.get('goals').findBy('id',id);
 			this.sortPriorities(model,-1);
-			//this.calcPriorities();
 			model.destroyRecord();
-		}
+		},
 
 	},
 	calcPriorities(){

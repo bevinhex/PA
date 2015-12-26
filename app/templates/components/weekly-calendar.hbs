@@ -1,11 +1,86 @@
-<table class="table table-condensed">
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+<style>
+	.weekly-calendar
+	{
+		width:77%;
+		float:right;
+	}
+	.weekly-calendar table
+	{
+		table-layout:fixed;
+	}
+	.weekly-calendar td
+	{
+		text-align:center;
+		height:20px;
+		padding:0px !important;
+	}
+	#time-label
+	{
+		position:absolute;
+		left:0px;
+		top:20px;
+		opacity:0.7;
+		z-index:1;
+	}
+	#time-label span
+	{
+		display:block;
+		font-size:10px;
+		line-height:20px;
+		-webkit-touch-callout: none;
+	    -webkit-user-select: none;
+	    -khtml-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	}
+</style>
+<table class="table table-condensed table-bordered table-hover">
+	<tbody>
+	<tr class="info">
+		<td>Sun</td>
+		<td>Mon</td>
+		<td>Tue</td>
+		<td>Wed</td>
+		<td>Thu</td>
+		<td>Fri</td>
+		<td>Sat</td>
 	</tr>
+	<tr class="success"><td colspan=7>Today's Priorities</td></tr>
+	{{table-row goals=goals id=0}}
+	{{table-row goals=goals id=1}}
+	{{table-row goals=goals id=2}}
+	{{table-row goals=goals id=3}}
+	{{table-row goals=goals id=4}}
+	{{table-row goals=goals id=5}}
+	<tr class="success" style="position:relative;">
+		<td colspan=7>Apointments/Commitments
+			<span id="time-label">
+				{{#each times as |time|}}
+					<span>{{time}}</span>
+				{{/each}}
+			</span>
+		</td>
+	</tr>
+	{{table-row goals=goals id=6}}
+	{{table-row goals=goals id=7}}
+	{{table-row goals=goals id=8}}
+	{{table-row goals=goals id=9}}
+	{{table-row goals=goals id=10}}
+	{{table-row goals=goals id=11}}
+	{{table-row goals=goals id=12}}
+	{{table-row goals=goals id=13}}
+	{{table-row goals=goals id=14}}
+	{{table-row goals=goals id=15}}
+	{{table-row goals=goals id=16}}
+	{{table-row goals=goals id=17}}
+	{{table-row goals=goals id=18}}
+	<tr class="success"><td colspan=7>Evening</td></tr>
+	{{table-row goals=goals id=19}}
+	{{table-row goals=goals id=20}}
+	{{table-row goals=goals id=21}}
+	{{table-row goals=goals id=22}}
+	{{table-row goals=goals id=23}}
+	{{table-row goals=goals id=24}}
+	</tbody>
 </table>

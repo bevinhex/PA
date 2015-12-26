@@ -1,17 +1,24 @@
 <style>
+.weekly-goals
+{
+	width:23%;
+	float:left;
+}
 .weekly-goal .table-role
 {
 	margin-bottom:0px;
-	width:23%;
+	width:100%;
 	table-layout:fixed;
 }
 .weekly-goal .goal-row
 {
 	position:relative;
+	margin:1px 1px;
 }
 .weekly-goal td
 {
 	vertical-align:middle !important;
+	padding:1px !important;
 }
 .weekly-goal .goal-row a
 {
@@ -28,11 +35,11 @@
 	right:0px;
 	bottom:2px;
 }
-.weekly-goal .goal-row:nth-child(odd)
+.weekly-goal:nth-child(odd) .goal-row
 {
 	background-color: #D8EFF0;;
 }
-.weekly-goal .goal-row:nth-child(even)
+.weekly-goal:nth-child(even) .goal-row
 {
 	background-color: #F0F0D8;
 }
@@ -78,6 +85,7 @@
 }
 </style>
 <table class="table table-bordered table-hover table-role">
+	<tbody>
 	<tr>
 		<td class="success role-cell">
 			<a class="role-editable editable">{{role.name}}</a>
@@ -87,7 +95,7 @@
 		</td>
 		<td>
 			{{#each goals as |goal|}}
-				<div class="goal-row">
+				<div class="goal-row" draggable='true' data-id={{goal.id}}>
 					<a class="priority-editable priority" data-id={{goal.id}} data-value={{goal.priority}}><span class="label label-default">{{goal.priority}}</span></a>
 					<a class="goal-editable editable" data-id={{goal.id}}>{{goal.content}}</a>
 					<button type="button" class="btn btn-success btn-xs pull-right goal-button" {{action 'deleteGoal' goal.id}}><span class="glyphicon glyphicon-trash"></span></button>
@@ -95,4 +103,5 @@
 			{{/each}}
 		</td>
 	</tr>
+	</tbody>
 </table>
