@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	classNames:'table-cell',
+	didInsertElement(){
+		$(this.element.getElementsByClassName('event')).tooltip();	
+	},
 	dragStart(event){
 		event.dataTransfer.setData('text/data',$(event.target).data('id'));
 	},
@@ -13,7 +16,11 @@ export default Ember.Component.extend({
 		var goals = this.get('goals');
 		var model = goals.findBy('id',id)
 		model.set('calendarLoc',this.get('id'));
-		model.save();
+		var self = this;
+		model.save()
+			.then(function(){
+				$(self.element.getElementsByClassName('event')).tooltip();	
+		});
 	},
 	myGoals: Ember.computed('goals.@each.calendarLoc',function(){
 		return this.get('goals').filterBy('calendarLoc',this.get('id'));

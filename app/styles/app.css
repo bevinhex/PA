@@ -40,3 +40,7 @@ body > .ember-view
 	margin-bottom:0px;
 	overflow:auto;
 }
+.editable-unsaved
+{
+	font-weight:normal;
+}
